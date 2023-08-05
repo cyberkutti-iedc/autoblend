@@ -1,0 +1,148 @@
+/* Home.css */
+
+/* Main container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/anim1.gif"),url("../img/homebg2.png");
+    background-repeat: no-repeat;
+    background-position: top,2px;
+    background-size: 14.5%,70%;
+    background-color: #4caf50; /* Green background color */
+    color: #ffffff; /* White text color */
+    text-align: center;
+  }
+  
+  /* Main title */
+  .main-title {
+    font-size: 3rem;
+    color: white;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, .8);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Sub title */
+  .sub-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  /* Description container */
+  .description-container {
+    max-width: 600px;
+  }
+  
+  /* Description text */
+  .description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  /* Explore button */
+  .explore-button {
+    background-color: #ffffff; /* White button background */
+    color: #4caf50; /* Green button text color */
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 32vb;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Hover effect for the button */
+  .explore-button:hover {
+    background-color: #f1f1f1; /* Light gray background on hover */
+    transform: scale(1.05); /* Slightly increase button size on hover */
+  }
+  
+  /* Click effect for the button */
+  .explore-button:active {
+    background-color: #dcdcdc; /* Darker gray background on click */
+    transform: scale(0.95); /* Slightly reduce button size on click */
+  }
+  
+  /* Media query for mobile devices */
+  @media screen and (max-width: 480px) {
+    
+/* Main container */
+.home-container {
+ 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  width: 100%;
+  background-image: url("../img/anim1.gif"),url("../img/homebg2.png");
+  background-repeat: no-repeat;
+  background-position: 14vh 7vb,16vh 8vb;
+  background-size: 24%,70%;
+  background-color: #4caf50; /* Green background color */
+  color: #ffffff; /* White text color */
+  text-align: center;
+}
+
+/* Main title */
+.main-title {
+  font-size: 3rem;
+  color: white;
+text-shadow: 0px 2px 10px rgba(0, 0, 0, .8);
+  margin-bottom: 0.5rem;
+}
+
+/* Sub title */
+.sub-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+
+/* Description text */
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+/* Explore button */
+/* Explore button */
+.explore-button {
+  background-color: #ffffff; /* White button background */
+  color: #4caf50; /* Green button text color */
+  border: none;
+  padding: 6px 12px; /* Adjust the padding to make the button smaller */
+  font-size: 0.8rem; /* Adjust the font size to make the button text smaller */
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-left:25%;
+  margin-bottom: 0.5rem;
+  width: 50%;
+}
+
+
+/* Hover effect for the button */
+.explore-button:hover {
+  background-color: #f1f1f1; /* Light gray background on hover */
+  transform: scale(1.05); /* Slightly increase button size on hover */
+}
+
+/* Click effect for the button */
+.explore-button:active {
+  background-color: #dcdcdc; /* Darker gray background on click */
+  transform: scale(0.95); /* Slightly reduce button size on click */
+}
+
+}
+  

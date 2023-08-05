@@ -1,0 +1,146 @@
+/* AboutUs.css */
+.about-us-container {
+   
+    background-color: #4caf50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .about-us-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fade-in 1s ease-out;
+  }
+  
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .about-us-content h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-content h2 {
+    font-size: 28px;
+    color: #555;
+    margin-top: 30px;
+  }
+  
+  .about-us-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  .instagram-link {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .instagram-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #ff8500;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .instagram-button:hover {
+    background-color: #ff6b00;
+  }
+  
+  /* Add any other CSS styles you want to customize the page further */
+  
+
+
+  @media screen and (max-width: 480px) {
+  
+    .about-us-container {
+      width: 100%;
+      background-color: #4caf50;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+    .about-us-content {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      padding: 30px;
+      width: 100%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      animation: fade-in 1s ease-out;
+    }
+    
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    .about-us-content h1 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .about-us-content h2 {
+      font-size: 21px;
+      color: #555;
+      margin-top: 30px;
+    }
+    
+    .about-us-content p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    
+   
+    
+    .instagram-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff6b00;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    
+    .instagram-button:hover {
+      transition: background-color 0.4 ease;
+      background-color: #4caf50;
+      color: #fff; /* White text color on hover */
+      
+    }
+
+
+  }

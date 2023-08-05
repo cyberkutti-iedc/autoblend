@@ -1,0 +1,93 @@
+/* styles.scss */
+
+/* Variables */
+$primary-color: #4CAF50;
+$secondary-color: #ff9800;
+$navbar-height: 60px;
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navbar-height;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary-color;
+  color: #fff;
+  padding: 0 20px;
+  z-index: 1000;
+  transition: top 0.3s; /* Add animation for hiding/showing navbar on scroll */
+}
+
+.navbar.show {
+  top: -100px; /* Hide navbar on scroll */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Hide menu icon on larger screens */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: $secondary-color;
+}
+
+/* Mobile view styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 10px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* Hide menu links by default on mobile */
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    width: 100%;
+    background-color: $primary-color;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links.show {
+    display: flex; /* Show menu links when menu is open */
+  }
+
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
