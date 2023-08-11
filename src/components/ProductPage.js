@@ -20,10 +20,10 @@ const database = getDatabase(app);
 
 const ProductPage = () => {
   const products = [
-    { id: 'L1', name: 'Grapes', price:50, imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2F20230802_142657.png?alt=media&token=717f6709-1844-46ea-9259-8e6f3d77eb54" },
-    { id: 'L2', name: 'Passion', price: 60,imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2F20230802_141735.png?alt=media&token=275b6611-26b4-406a-93bd-cebc9770e033"},
-    { id: 'L3', name: 'Stawberry', price: 70 ,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2F20230802_142035.png?alt=media&token=1251fcf1-1823-4673-9de4-8a4c849c810b"},
-    { id: 'L4', name: 'Mint', price: 50,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2F20230802_143102.png?alt=media&token=fc54e4ba-891d-478b-9501-70cfd35bad9c" },
+    { id: 'L1', name: 'Lychee', price:50, imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2FLychee.png?alt=media&token=1305affa-f774-4bc9-87e6-ecb3b8e07cd9" },
+    { id: 'L2', name: 'Oranage', price: 60,imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Foranage.png?alt=media&token=30298c71-f9fe-44e2-a6a9-f6126937cce6"},
+    { id: 'L3', name: 'Stawberry', price: 70 ,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2FStrawberry.png?alt=media&token=63bf8b53-5583-4b38-8eec-5be2b98c04d7"},
+    { id: 'L4', name: 'WaterMelon', price: 50,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fwatermelon.png?alt=media&token=14263e2b-1427-4446-965f-bae64a775ec5" },
     { id: 'L5', name: 'Sprite', price: 20,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fsprite.png?alt=media&token=43fa6e7c-4048-4411-b807-feb1258d8330" },
     { id: 'L6', name: 'Water', price: 0,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fwater.png?alt=media&token=437712c2-deb3-492a-b5ef-3f7d060ad60b" },
 

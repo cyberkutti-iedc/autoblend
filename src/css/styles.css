@@ -88,7 +88,7 @@ button:hover {
 .product-item img {
   width: 200px; /* Set the desired width for the product image */
   height: 200px; /* Set the desired height for the product image */
-  object-fit: cover;
+  object-fit: fit;
   margin-left: 10px;
   
   box-shadow: 0 0 30px #ccc;

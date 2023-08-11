@@ -5,12 +5,12 @@
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 100%; /* Adjusted for mobile */
     margin: 0 auto;
   }
   
   .feedback-container h2 {
-    font-size: 28px;
+    font-size: 24px; /* Adjusted font size for mobile */
     margin-bottom: 15px;
   }
   
@@ -22,7 +22,8 @@
   
   .feedback-container .rating {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stacked for mobile */
+    align-items: flex-start; /* Aligned to the left for mobile */
     gap: 10px;
   }
   
