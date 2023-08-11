@@ -15,8 +15,8 @@ const AboutUs = () => {
           level of excellence.
         </p>
         <p>
-          Our team of innovators, Chaithanya Raj, Sreeraj V Rajesh, Archana M.B, Anjana M.B, Dheeraj K.K,
-          and Sreelaskhmi K.S, are on a mission to create something cool and
+          Our team of innovators, Chaithanya Raj, Sreeraj V Rajesh, Dheeraj K.K,
+          and Sreelakshmi K.S, are on a mission to create something cool and
           exciting. We believe that every sip should be a delightful adventure.
           With AutoBlend, mixology becomes an art, and your taste buds are in
           for a treat.

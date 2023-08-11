@@ -119,11 +119,10 @@ const ProductPage = () => {
     return total.toFixed(2);
   };
 
-
-
-
   const [showPopup, setShowPopup] = useState(false);
   const [orderReady, setOrderReady] = useState(false);
+
+  /*
  const handleCheckout = () => {
     // Prepare an object to store the selected drinks as 1 or not selected as 0
     const selectedDrinks = {};
@@ -171,6 +170,112 @@ const ProductPage = () => {
       });
     }, 10000); // Delay of 10000ms (10 seconds) after the initial checkout
   };
+*/
+
+  
+// ... (previous code)
+
+// ... (previous code)
+
+const handleCheckout = async () => {
+  // Prepare an object to store the selected drinks as 1 or not selected as 0
+  const selectedDrinks = {};
+  products.forEach((product) => {
+    selectedDrinks[product.id] = cartItems.hasOwnProperty(product.id) ? '1' : '0';
+  });
+
+  // Show the popup notification
+  setShowPopup(true);
+
+  // Hide the popup after a delay (5 seconds in this example)
+  setTimeout(() => {
+    setShowPopup(false);
+  }, 10000);
+
+  // Show the "Order Ready" popup after the cooking process (2 seconds after checkout)
+  setTimeout(() => {
+    setOrderReady(true);
+    // Hide the "Order Ready" popup after a delay (3 seconds in this example)
+    setTimeout(() => {
+      setOrderReady(false);
+    }, 17000);
+  }, 2000);
+
+  const drinkOrder = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'];
+
+  const firstSelectedIndex = drinkOrder.findIndex((drinkId) => selectedDrinks[drinkId] === '1');
+  if (firstSelectedIndex === -1) {
+    console.log('No drinks selected for processing.');
+    return;
+  }
+
+  const processDrink = async (drinkIndex) => {
+    if (drinkIndex >= drinkOrder.length) {
+      // Finished processing all drinks, reset the selectedDrinks to 0 after a delay
+      setTimeout(() => {
+        const zeroDrinks = {};
+        products.forEach((product) => {
+          zeroDrinks[product.id] = '0';
+        });
+
+        // Update the individual L1, L2, L3, L4, L5, L6 values in the Firebase Realtime Database
+        products.forEach((product) => {
+          const productRef = ref(database, product.id);
+          set(productRef, zeroDrinks[product.id]);
+        });
+
+        console.log('All drinks processed, resetting to 0.');
+      }, 10000); // 10 seconds delay before resetting the selectedDrinks
+
+      return;
+    }
+
+    const currentDrinkId = drinkOrder[drinkIndex];
+    const currentDrinkValue = selectedDrinks[currentDrinkId];
+
+    if (currentDrinkValue === '1') {
+      // Perform the task for the current drink (e.g., sending 1 to Firebase)
+      const productRef = ref(database, currentDrinkId);
+      await set(productRef, '1', (error) => {
+        if (error) {
+          console.error(`Error sending ${currentDrinkId} to Firebase: ${error.message}`);
+        } else {
+          console.log(`Sent ${currentDrinkId} to Firebase`);
+        }
+      });
+    } else {
+      console.log(`Skipping ${currentDrinkId}`);
+    }
+
+    // Wait for a delay (e.g., 2 seconds) before setting the current drink to 0 and moving to the next drink
+    setTimeout(async () => {
+      const productRef = ref(database, currentDrinkId);
+      await set(productRef, '0', (error) => {
+        if (error) {
+          console.error(`Error resetting ${currentDrinkId} to 0 in Firebase: ${error.message}`);
+        } else {
+          console.log(`Reset ${currentDrinkId} to 0 in Firebase`);
+        }
+      });
+
+      // Process the next drink after a 20-second delay if more than one item, or 10 seconds if only one item
+      setTimeout(() => {
+        processDrink(drinkIndex + 1);
+      }, drinkIndex === firstSelectedIndex ? 10000 : 11000); // 10 seconds for the first item, 20 seconds for the rest
+    }, 5000); // 5 seconds delay before moving to the next drink
+  };
+
+  // Start processing the drinks, starting from the first selected drink
+  processDrink(firstSelectedIndex);
+
+  // Clear the cart after checkout
+  setCartItems({});
+};
+
+// ... (rest of the code)
+
+
+
 
   const handleRemoveFromCart = (productId) => {
     setCartItems((prevCartItems) => {
