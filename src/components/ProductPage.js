@@ -190,7 +190,7 @@ const handleCheckout = async () => {
   // Hide the popup after a delay (5 seconds in this example)
   setTimeout(() => {
     setShowPopup(false);
-  }, 10000);
+  }, 4000);
 
   // Show the "Order Ready" popup after the cooking process (2 seconds after checkout)
   setTimeout(() => {
@@ -199,7 +199,7 @@ const handleCheckout = async () => {
     setTimeout(() => {
       setOrderReady(false);
     }, 17000);
-  }, 2000);
+  }, 5000);
 
   const drinkOrder = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6'];
 
@@ -338,7 +338,7 @@ return (
     {showPopup && (
       <div className="popup-overlay">
         <div className="popup-modal">
-          <p>Autoblend Is Cooking Something Special For You!</p>
+          <p>Autoblend Is Preparing Something Special For You! Make Sure Glass On Desk OR 😢</p>
         </div>
       </div>
     )}
