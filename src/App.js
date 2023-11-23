@@ -1,13 +1,13 @@
 // App.js
 
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductPage from './components/ProductPage';
 import ContactPage from './components/ContactPage';
 import Navbar from './components/Navbar';
 import AboutUsPage from './components/AboutUsPage';
 import FeedbackPage from './components/FeedbackPage';
-
+import AdminPage from './components/AdminPage';
 //import Footer from './components/footer';
 import Home from './components/home';
 
@@ -33,6 +33,7 @@ return (
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/feedback" element={<FeedbackPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       
       </div>

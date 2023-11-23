@@ -1,6 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, push, set, onValue } from 'firebase/database';
+import {
+  Button,
+  Card,
+  CardContent,
+  CardActions,
+  CardMedia,
+  Grid,
+  Paper,
+  Snackbar,
+  Typography,
+  IconButton,
+  Toolbar,
+  Container,
+  AppBar,
+  CssBaseline,
+} from '@mui/material';
+import {
+  AddShoppingCart as AddShoppingCartIcon,
+  RemoveShoppingCart as RemoveShoppingCartIcon,
+} from '@mui/icons-material';
 
 
 // Replace with your Firebase config
@@ -15,8 +35,6 @@ const firebaseConfig = {
   appId: "1:400824416363:web:8d8218e91fa0f75850192e"
 };
 
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
 
 const ProductPage = () => {
   const products = [
@@ -31,8 +49,15 @@ const ProductPage = () => {
     // Add more products with their respective images
   
   ];
-
   const [cartItems, setCartItems] = useState({});
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const getTotalItemsInCart = () => {
+    return Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
+  };
+
+  //const [showPopup, setShowPopup] = useState(false);
+  //const [orderReady, setOrderReady] = useState(false);
 
   const getKeyForProduct = (productId) => {
     const productIndex = products.findIndex((product) => product.id === productId);
@@ -287,73 +312,107 @@ const handleCheckout = async () => {
 
   
   
-
-// ... (previous code)
-return (
-  <div>
-    <h1>Products🍹</h1>
-    <div className="products-container">
-        {products.map((product) => (
-          <div className="product-item" key={product.id}>
-            <img src={product.imageURL} alt={product.name} />
-            <h3>{product.name}</h3>
-            <p>Price: Rs {product.price.toFixed(2)}</p>
-            <button onClick={() => handleAddToCart(product, 1)}>Add to Cart</button>
-          </div>
-        ))}
-      </div>
-
-    <hr />
-    <div>
-      <h1>My Cart🥤</h1>
-      <div className="cart-items">
-        {Object.keys(cartItems).map((cartProductId) => {
-          const cartItem = cartItems[cartProductId];
-          const product = products.find((p) => p.id === cartItem.productId);
-          return (
-            <div className="cart-item" key={cartProductId}>
-              <div className="cart-item-text">
-              <div className="cart-item-image">
-            <img src={product.imageURL} alt={product.name} />
-          </div>
-                <h3>{product.name}</h3>
-                <p>Price: Rs{product.price.toFixed(2)}</p>
-                <p>Quantity:  {cartItem.quantity}</p>
-              </div>
-              <button className="buttonremove" onClick={() => handleRemoveFromCart(cartProductId)}>
-                Remove from Cart
-              </button>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+  return (
    
-    {Object.keys(cartItems).length > 0 && (
-      <button className="checkout-btn" onClick={handleCheckout}>
-        Checkout
-      </button>
-    )}
+      <>
+      <CssBaseline />
+     
+      <Toolbar /> {/* To ensure content isn't hidden under the app bar */}
+      <Container>
+        <Grid container spacing={3}>
+          {products.map((product) => (
+            <Grid item key={product.id} xs={12} sm={6} md={4}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={product.imageURL}
+                  alt={product.name}
+                  style={{ objectFit: 'cover' }}
+                />
+                <CardContent>
+                  <Typography variant="h6">{product.name}</Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Price: Rs {product.price.toFixed(2)}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    startIcon={<AddShoppingCartIcon />}
+                    fullWidth
+                    onClick={() => handleAddToCart(product, 1)} // Update the quantity as needed
+                  >
+                    Add to Cart
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
 
-    {showPopup && (
-      <div className="popup-overlay">
-        <div className="popup-modal">
-          <p>Autoblend Is Preparing Something Special For You! Make Sure Glass On Desk OR 😢</p>
-        </div>
-      </div>
-    )}
-    {orderReady && (
-      <div className="popup-overlay">
-        <div className="popup-modal">
-          <p>Your Order is Ready!</p>
-        </div>
-      </div>
-      
-    )}
-  </div>
-);
+        <Grid container spacing={3} style={{ marginTop: '20px' }}>
+          <Grid item xs={12}>
+            <Typography variant="h3">My Cart🥤</Typography>
+          </Grid>
+          {Object.keys(cartItems).map((cartProductId) => {
+            const cartItem = cartItems[cartProductId];
+            const product = products.find((p) => p.id === cartItem.productId);
+            return (
+              <Grid item key={cartProductId} xs={12} md={6}>
+                <Paper elevation={3} style={{ padding: '16px' }}>
+                  <Grid container>
+                    <Grid item xs={4}>
+                      <CardMedia
+                        component="img"
+                        height="80"
+                        image={product.imageURL}
+                        alt={product.name}
+                        style={{ objectFit: 'cover' }}
+                      />
+                    </Grid>
+                    <Grid item xs={8}>
+                      <Typography variant="h6">{product.name}</Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Price: Rs {product.price.toFixed(2)}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Quantity: {cartItem.quantity}
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                  <CardActions>
+                    <IconButton onClick={() => handleRemoveFromCart(cartProductId)} color="error">
+                      <RemoveShoppingCartIcon />
+                    </IconButton>
+                  </CardActions>
+                </Paper>
+              </Grid>
+            );
+          })}
+        </Grid>
 
-
+        <Grid item xs={12}>
+          <Snackbar
+            open={showPopup}
+            autoHideDuration={4000}
+            message="Autoblend is preparing something special for you! Make sure the glass is on the desk."
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <Snackbar open={orderReady} autoHideDuration={4000} message="Your order is ready!" />
+        </Grid>
+        <Grid item xs={12}>
+          {Object.keys(cartItems).length > 0 && (
+            <Button onClick={handleCheckout} variant="contained" color="primary">
+              Checkout ({getTotalItemsInCart()})
+            </Button>
+          )}
+        </Grid>
+      </Container>
+    </>
+  );
   
 };
 
