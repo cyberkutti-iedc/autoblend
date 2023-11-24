@@ -38,11 +38,11 @@ const firebaseConfig = {
 
 const ProductPage = () => {
   const products = [
-    { id: 'L1', name: 'Lychee', price:50, imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2FLychee.png?alt=media&token=1305affa-f774-4bc9-87e6-ecb3b8e07cd9" },
-    { id: 'L2', name: 'Oranage', price: 60,imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Foranage.png?alt=media&token=30298c71-f9fe-44e2-a6a9-f6126937cce6"},
-    { id: 'L3', name: 'Stawberry', price: 70 ,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2FStrawberry.png?alt=media&token=63bf8b53-5583-4b38-8eec-5be2b98c04d7"},
-    { id: 'L4', name: 'WaterMelon', price: 50,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fwatermelon.png?alt=media&token=14263e2b-1427-4446-965f-bae64a775ec5" },
-    { id: 'L5', name: 'Sprite', price: 20,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fsprite.png?alt=media&token=43fa6e7c-4048-4411-b807-feb1258d8330" },
+    { id: 'L1', name: 'Mango', price:25, imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fmango.png?alt=media&token=4ed0af10-35b5-4207-bf90-d2d3165c4a35" },
+    { id: 'L2', name: 'Passion', price: 30,imageURL: "https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fpassion.png?alt=media&token=5f9bba4f-09a4-41f3-9110-e8f5e1c8cfdf"},
+    { id: 'L3', name: 'Strawberry', price: 20 ,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fstrawberry.png?alt=media&token=ca6dad79-6bcd-4382-9623-718fa8a9069b"},
+    { id: 'L4', name: 'WaterMelon', price: 20,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fwatermelon.png?alt=media&token=14263e2b-1427-4446-965f-bae64a775ec5" },
+    { id: 'L5', name: 'Sprite', price: 10,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fsprite.png?alt=media&token=43fa6e7c-4048-4411-b807-feb1258d8330" },
     { id: 'L6', name: 'Water', price: 0,imageURL:"https://firebasestorage.googleapis.com/v0/b/autoblend-aecac.appspot.com/o/img%2Fwater.png?alt=media&token=437712c2-deb3-492a-b5ef-3f7d060ad60b" },
 
    
